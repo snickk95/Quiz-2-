@@ -3,12 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TransactionRecordApp.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//get connection string
+string? connStr = builder.Configuration.GetConnectionString("TransactionDb");
+
+// Add our context to the controller
+builder.Services.AddDbContext<TransactionDbContext>(options => options.UseSqlServer(connStr));
 
 var app = builder.Build();
 
