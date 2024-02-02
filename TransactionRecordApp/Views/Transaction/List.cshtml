@@ -1,0 +1,27 @@
+﻿@model List<Transaction>
+
+@{
+    ViewData["Title"] = "All Transactions";
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>TickerSymbol</th>
+            <th>CompanyName</th>
+            <th>sharePrice</th>
+            <th>grossVal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Transaction m in Model)
+        {
+            <tr>
+                <td>@m.TickerSymbol</td>
+                <td>@m.CompanyName</td>
+                <td>@m.sharePrice</td>
+                <td>@m.grossVal</td>
+            </tr>
+        }
+    </tbody>
+</table>
