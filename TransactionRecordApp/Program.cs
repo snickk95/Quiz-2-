@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //get connection string
-string? connStr = builder.Configuration.GetConnectionString("TransactionDb");
+string? connStr = builder.Configuration.GetConnectionString("TransactionsDb");
 
 // Add our context to the controller
 builder.Services.AddDbContext<TransactionDbContext>(options => options.UseSqlServer(connStr));
